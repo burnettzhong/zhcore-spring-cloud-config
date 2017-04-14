@@ -1,0 +1,27 @@
+security:
+  oauth2:
+    client:
+      clientId: account-service
+      clientSecret: ${ACCOUNT_SERVICE_PASSWORD}
+      accessTokenUri: http://auth-service:5000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      username: user
+      password: ${MONGODB_PASSWORD}
+      database: piggymetrics
+      port: 27017
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/zhcore?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: root
+    password: root
+    defaultAutoCommit: false
+
+server:
+  context-path: /accounts
+  port: 6000
